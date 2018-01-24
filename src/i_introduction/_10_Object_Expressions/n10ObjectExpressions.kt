@@ -3,9 +3,10 @@ package i_introduction._10_Object_Expressions
 import util.TODO
 import util.doc10
 import java.util.*
+import kotlin.collections.ArrayList
 
 fun todoTask10(): Nothing = TODO(
-    """
+        """
         Task 10.
         Read about object expressions that play the same role in Kotlin as anonymous classes in Java.
 
@@ -13,11 +14,16 @@ fun todoTask10(): Nothing = TODO(
         In Kotlin you use Kotlin library extensions instead of java.util.Collections,
         but this example is still a good demonstration of mixing Kotlin and Java code.
     """,
-    documentation = doc10()
+        documentation = doc10()
 )
+
+fun ArrayList<Int>.sort(): ArrayList<Int> {
+    Collections.sort(this, { o1, o2 -> o2 - o1 })
+    return this
+}
 
 fun task10(): List<Int> {
     val arrayList = arrayListOf(1, 5, 2)
-    Collections.sort(arrayList, todoTask10())
-    return arrayList
+
+    return arrayList.sort()
 }
